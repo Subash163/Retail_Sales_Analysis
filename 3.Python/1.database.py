@@ -1,10 +1,8 @@
 """
-=========================================================
 Retail Sales Analysis Project
 File        : database.py
 Description : Connects to MySQL, loads normalized tables,
               merges them into a single DataFrame.
-=========================================================
 """
 
 import pandas as pd
@@ -25,9 +23,7 @@ from config import (
 )
 
 
-# =========================================================
-# Create MySQL Engine
-# =========================================================
+###### Create MySQL Engine
 
 def get_engine():
     """
@@ -47,9 +43,7 @@ def get_engine():
     return create_engine(connection_url)
 
 
-# =========================================================
-# Test Database Connection
-# =========================================================
+###### Test Database Connection
 
 def test_connection():
     """
@@ -68,21 +62,19 @@ def test_connection():
         with engine.connect() as conn:
             conn.execute(text("SELECT 1"))
 
-        print("✅ MySQL Connection Successful")
+        print("MySQL Connection Successful")
 
         return True
 
     except SQLAlchemyError as e:
 
-        print("❌ Database Connection Failed")
+        print("Database Connection Failed")
         print(e)
 
         return False
 
 
-# =========================================================
-# Load Individual Tables
-# =========================================================
+###### Load Individual Tables
 
 def load_tables():
     """
@@ -152,7 +144,7 @@ def load_tables():
 
         print("Sales Loaded")
 
-        print("✅ Tables Loaded Successfully\n")
+        print("Tables Loaded Successfully\n")
 
         return {
             "customers": customers,
@@ -163,15 +155,13 @@ def load_tables():
 
     except SQLAlchemyError as e:
 
-        print("❌ Error loading tables.")
+        print("Error loading tables.")
         print(e)
 
         return None
 
 
-# =========================================================
-# Merge Tables
-# =========================================================
+###### Merge Tables
 
 def load_data():
     """
@@ -211,23 +201,20 @@ def load_data():
         )
     )
 
-    print("✅ Tables Merged Successfully\n")
+    print("Tables Merged Successfully\n")
 
     return df
 
 
-# =========================================================
-# Dataset Information
-# =========================================================
+###### Dataset Information
 
 def dataset_info(df):
     """
     Displays dataset summary.
     """
 
-    print("=" * 60)
     print("DATASET SUMMARY")
-    print("=" * 60)
+    print("\n")
 
     print(f"Rows    : {df.shape[0]}")
     print(f"Columns : {df.shape[1]}")
@@ -242,15 +229,12 @@ def dataset_info(df):
     print(df.dtypes)
 
 
-# =========================================================
-# Main
-# =========================================================
+###### Main
 
 if __name__ == "__main__":
 
-    print("=" * 60)
     print("Retail Sales Analysis")
-    print("=" * 60)
+    print("\n")
 
     if test_connection():
 

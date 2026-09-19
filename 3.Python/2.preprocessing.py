@@ -1,17 +1,12 @@
 """
-=========================================================
 Retail Sales Analysis Project
 File        : preprocessing.py
 Description : Data validation and feature engineering
-Author      : Subash Venkatesan
-=========================================================
 """
 
 import pandas as pd
 
-# =========================================================
-# DATA VALIDATION
-# =========================================================
+###### DATA VALIDATION
 
 def check_shape(df):
     return df.shape
@@ -37,9 +32,7 @@ def statistical_summary(df):
     return df.describe(include="all")
 
 
-# =========================================================
-# DATE VALIDATION
-# =========================================================
+###### DATE VALIDATION
 
 def validate_dates(df):
     """
@@ -57,9 +50,8 @@ def shipping_validation(df):
     invalid_orders = df[df["Ship_Date"] < df["Order_Date"]]
     return invalid_orders
 
-# =========================================================
-# FEATURE ENGINEERING
-# =========================================================
+
+###### FEATURE ENGINEERING
 
 def create_features(df):
     # Order Year
@@ -89,19 +81,18 @@ def create_features(df):
     # Profit Margin
     df["Profit_Margin"] = (
         df["Profit"] /
-        df["Sales"]
+        df["Sales"].replace(0, pd.NA)
     ) * 100
 
     # Average Selling Price
     df["Average_Selling_Price"] = (
         df["Sales"] /
-        df["Quantity"]
+        df["Quantity"].replace(0, pd.NA)
     )
     return df
 
-# =========================================================
-# BUSINESS VALIDATION
-# =========================================================
+
+###### BUSINESS VALIDATION
 
 def negative_profit_orders(df):
     """
@@ -138,9 +129,7 @@ def top_subcategories(df):
     )
 
 
-# =========================================================
-# FINAL PREPROCESSING PIPELINE
-# =========================================================
+###### FINAL PREPROCESSING PIPELINE
 
 def preprocess_data(df):
     """
@@ -150,10 +139,11 @@ def preprocess_data(df):
     df = create_features(df)
     return df
 if __name__ == "__main__":
+
     from database import load_data
-    print("=" * 60)
+    print("\n")
     print("Preprocessing Started")
-    print("=" * 60)
+    print("\n")
     df = load_data()
     print("\nOriginal Shape")
     print(df.shape)

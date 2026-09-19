@@ -1,8 +1,5 @@
 """
-=========================================================
                 RETAIL SALES ANALYSIS PROJECT
-=========================================================
-
 File Name  : visualization.py
 
 Purpose
@@ -10,25 +7,22 @@ Purpose
 This module contains all visualization functions used for
 Exploratory Data Analysis (EDA).
 
-Author      : Subash
-Language    : Python
 Libraries   : Pandas, Matplotlib
 
-=========================================================
 """
 
-# =========================================================
-# IMPORT LIBRARIES
-# =========================================================
+
+###### IMPORT LIBRARIES
+
 
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
 
-# =========================================================
-# GLOBAL PLOT STYLE
-# =========================================================
+
+###### GLOBAL PLOT STYLE
+
 
 plt.style.use("ggplot")
 plt.rcParams["figure.figsize"] = (12, 6)
@@ -45,16 +39,16 @@ plt.rcParams["axes.grid"] = True
 plt.rcParams["grid.alpha"] = 0.30
 plt.rcParams["figure.autolayout"] = True
 
-# =========================================================
-# CREATE IMAGES FOLDER
-# =========================================================
+
+###### CREATE IMAGES FOLDER
+
 
 IMAGE_FOLDER = "Images"
 os.makedirs(IMAGE_FOLDER, exist_ok=True)
 
-# =========================================================
-# CURRENCY FORMATTER
-# =========================================================
+
+###### CURRENCY FORMATTER
+
 
 def currency(x, pos):
     """
@@ -69,9 +63,8 @@ def currency(x, pos):
 
 currency_formatter = FuncFormatter(currency)
 
-# ============================================================
-# SAVE CHART HELPER
-# ============================================================
+
+###### SAVE CHART HELPER
 
 def save_chart(fig, filename):
     """
@@ -94,27 +87,22 @@ def save_chart(fig, filename):
         Saves the figure inside the Images folder.
     """
 
-    # --------------------------------------------------------
+    
     # Make sure the Images folder exists
-    # --------------------------------------------------------
-
+    
     os.makedirs(
         IMAGE_FOLDER,
         exist_ok=True
     )
 
-    # --------------------------------------------------------
-    # Create complete image path
-    # --------------------------------------------------------
+    # Create complete image path    
 
     filepath = os.path.join(
         IMAGE_FOLDER,
         filename
     )
 
-    # --------------------------------------------------------
-    # Save high-resolution chart
-    # --------------------------------------------------------
+    # Save high-resolution chart    
 
     fig.savefig(
         filepath,
@@ -124,9 +112,9 @@ def save_chart(fig, filename):
 
     print(f"Chart Saved : {filepath}")
 
-# =========================================================
-# ADD VALUE LABELS
-# =========================================================
+
+###### ADD VALUE LABELS
+
 
 def add_value_labels(ax):
     """
@@ -147,9 +135,9 @@ def add_value_labels(ax):
             fontsize=9
         )
 
-# =========================================================
-# PROFESSIONAL CHART SETTINGS
-# =========================================================
+
+###### PROFESSIONAL CHART SETTINGS
+
 
 def chart_layout(
     title,
@@ -186,9 +174,9 @@ def chart_layout(
 
     )
 
-# =========================================================
-# SHOW & SAVE
-# =========================================================
+
+###### SHOW & SAVE
+
 
 def finish_chart(filename):
     """
@@ -198,15 +186,12 @@ def finish_chart(filename):
     plt.show()
     plt.close()
 
-# ============================================================
+
 # CHARTS 1–6
 # RETAIL SALES ANALYSIS VISUALIZATIONS
-# ============================================================
 
 
-# ============================================================
 # CHART 1 — SALES BY CATEGORY
-# ============================================================
 
 def sales_by_category(df):
     """
@@ -286,9 +271,9 @@ def sales_by_category(df):
     print("Chart 1 completed.")
 
 
-# ============================================================
-# CHART 2 — PROFIT BY CATEGORY
-# ============================================================
+
+###### CHART 2 — PROFIT BY CATEGORY
+
 
 def profit_by_category(df):
     """
@@ -364,9 +349,9 @@ def profit_by_category(df):
     plt.close(fig)
     print("Chart 2 completed.")
 
-# ============================================================
-# CHART 3 — SALES BY SUB-CATEGORY
-# ============================================================
+
+###### CHART 3 — SALES BY SUB-CATEGORY
+
 
 def sales_by_subcategory(df):
     """
@@ -442,9 +427,9 @@ def sales_by_subcategory(df):
     print("Chart 3 completed.")
 
 
-# ============================================================
-# CHART 4 — PROFIT BY SUB-CATEGORY
-# ============================================================
+
+###### CHART 4 — PROFIT BY SUB-CATEGORY
+
 
 def profit_by_subcategory(df):
     """
@@ -540,9 +525,9 @@ def profit_by_subcategory(df):
     print("Chart 4 completed.")
 
 
-# ============================================================
-# CHART 5 — SALES BY REGION
-# ============================================================
+
+###### CHART 5 — SALES BY REGION
+
 
 def sales_by_region(df):
     """
@@ -619,9 +604,9 @@ def sales_by_region(df):
     print("Chart 5 completed.")
 
 
-# ============================================================
-# CHART 6 — PROFIT BY REGION
-# ============================================================
+
+###### CHART 6 — PROFIT BY REGION
+
 
 def profit_by_region(df):
     """
@@ -716,9 +701,9 @@ def profit_by_region(df):
 
     print("Chart 6 completed.")
 
-# ============================================================
-# CHART 7 — SALES BY CUSTOMER SEGMENT
-# ============================================================
+
+###### CHART 7 — SALES BY CUSTOMER SEGMENT
+
 
 def sales_by_segment(df):
     """
@@ -796,9 +781,9 @@ def sales_by_segment(df):
     print("Chart 7 completed.")
 
 
-# ============================================================
-# CHART 8 — PROFIT BY CUSTOMER SEGMENT
-# ============================================================
+
+###### CHART 8 — PROFIT BY CUSTOMER SEGMENT
+
 
 def profit_by_segment(df):
     """
@@ -895,9 +880,9 @@ def profit_by_segment(df):
     print("Chart 8 completed.")
 
 
-# ============================================================
-# CHART 9 — MONTHLY SALES TREND
-# ============================================================
+
+###### CHART 9 — MONTHLY SALES TREND
+
 
 def monthly_sales(df):
     """
@@ -980,9 +965,9 @@ def monthly_sales(df):
     print("Chart 9 completed.")
 
 
-# ============================================================
-# CHART 10 — MONTHLY PROFIT TREND
-# ============================================================
+
+###### CHART 10 — MONTHLY PROFIT TREND
+
 
 def monthly_profit(df):
     """
@@ -1070,22 +1055,18 @@ def monthly_profit(df):
     print("Chart 10 completed.")
 
 
-# ============================================================
 # CHART 11 — TOP 10 PRODUCTS BY SALES
-# ============================================================
 
 def top_10_products_by_sales(df):
     """
     Create a horizontal bar chart showing the top 10 products
     ranked by total sales.
 
-    Business Purpose
-    ----------------
+    Business Purpose:
     Identifies the products that contribute the most revenue
     and helps management understand high-performing products.
 
-    Parameters
-    ----------
+    Parameters:
     df : pandas.DataFrame
         Preprocessed retail sales dataset.
 
@@ -1160,22 +1141,19 @@ def top_10_products_by_sales(df):
     print("Chart 11 completed.")
 
 
-# ============================================================
-# CHART 12 — TOP 10 PRODUCTS BY PROFIT
-# ============================================================
+###### CHART 12 — TOP 10 PRODUCTS BY PROFIT
+
 
 def top_10_products_by_profit(df):
     """
     Create a horizontal bar chart showing the top 10 products
     ranked by total profit.
 
-    Business Purpose
-    ----------------
+    Business Purpose:
     Identifies the products that contribute the most profit
     and supports product portfolio optimization decisions.
 
-    Parameters
-    ----------
+    Parameters:
     df : pandas.DataFrame
         Preprocessed retail sales dataset.
 
@@ -1255,23 +1233,21 @@ def top_10_products_by_profit(df):
 
     print("Chart 12 completed.")
 
-# ============================================================
-# CHART 13 — BOTTOM 10 PRODUCTS BY PROFIT
-# ============================================================
+
+###### CHART 13 — BOTTOM 10 PRODUCTS BY PROFIT
+
 
 def bottom_10_products_by_profit(df):
     """
     Create a horizontal bar chart showing the bottom 10 products
     ranked by total profit.
 
-    Business Purpose
-    ----------------
+    Business Purpose:
     Identifies the products with the weakest profitability and
     highlights products that may require pricing, discount,
     cost, or inventory strategy review.
 
-    Parameters
-    ----------
+    Parameters:
     df : pandas.DataFrame
         Preprocessed retail sales dataset.
 
@@ -1361,22 +1337,20 @@ def bottom_10_products_by_profit(df):
     print("Chart 13 completed.")
 
 
-# ============================================================
-# CHART 14 — TOP 10 CUSTOMERS BY SALES
-# ============================================================
+
+###### CHART 14 — TOP 10 CUSTOMERS BY SALES
+
 
 def top_10_customers_by_sales(df):
     """
     Create a horizontal bar chart showing the top 10 customers
     ranked by total sales.
 
-    Business Purpose
-    ----------------
+    Business Purpose:
     Identifies high-value customers and helps management
     understand which customers contribute the most revenue.
 
-    Parameters
-    ----------
+    Parameters:
     df : pandas.DataFrame
         Preprocessed retail sales dataset.
 
@@ -1451,23 +1425,21 @@ def top_10_customers_by_sales(df):
     print("Chart 14 completed.")
 
 
-# ============================================================
-# CHART 15 — TOP 10 CUSTOMERS BY PROFIT
-# ============================================================
+
+###### CHART 15 — TOP 10 CUSTOMERS BY PROFIT
+
 
 def top_10_customers_by_profit(df):
     """
     Create a horizontal bar chart showing the top 10 customers
     ranked by total profit.
 
-    Business Purpose
-    ----------------
+    Business Purpose:
     Identifies customers who contribute the most profitability
     and supports customer retention and account-prioritization
     decisions.
 
-    Parameters
-    ----------
+    Parameters:
     df : pandas.DataFrame
         Preprocessed retail sales dataset.
 
@@ -1548,21 +1520,19 @@ def top_10_customers_by_profit(df):
     print("Chart 15 completed.")
 
 
-# ============================================================
-# CHART 16 — SALES BY STATE
-# ============================================================
+
+###### CHART 16 — SALES BY STATE
+
 
 def sales_by_state(df):
     """
     Create a horizontal bar chart showing total sales by state.
 
-    Business Purpose
-    ----------------
+    Business Purpose:
     Compares state-level sales performance and identifies
     the strongest geographic markets.
 
-    Parameters
-    ----------
+    Parameters:
     df : pandas.DataFrame
         Preprocessed retail sales dataset.
 
@@ -1637,22 +1607,20 @@ def sales_by_state(df):
     print("Chart 16 completed.")
 
 
-# ============================================================
-# CHART 17 — PROFIT BY STATE
-# ============================================================
+
+###### CHART 17 — PROFIT BY STATE
+
 
 def profit_by_state(df):
     """
     Create a horizontal bar chart showing total profit by state.
 
-    Business Purpose
-    ----------------
+    Business Purpose:
     Identifies the strongest and weakest states in terms of
     profitability and highlights regions requiring further
     business investigation.
 
-    Parameters
-    ----------
+    Parameters:
     df : pandas.DataFrame
         Preprocessed retail sales dataset.
 
@@ -1753,22 +1721,20 @@ def profit_by_state(df):
     print("Chart 17 completed.")
 
 
-# ============================================================
-# CHART 18 — SALES BY SHIP MODE
-# ============================================================
+
+###### CHART 18 — SALES BY SHIP MODE
+
 
 def sales_by_ship_mode(df):
     """
     Create a bar chart showing total sales by shipping mode.
 
-    Business Purpose
-    ----------------
+    Business Purpose:
     Compares revenue associated with different shipping modes
     and helps management understand customer shipping
     preferences and sales distribution.
 
-    Parameters
-    ----------
+    Parameters:
     df : pandas.DataFrame
         Preprocessed retail sales dataset.
 
@@ -1838,22 +1804,20 @@ def sales_by_ship_mode(df):
 
     print("Chart 18 completed.")
 
-# ============================================================
-# CHART 19 — PROFIT BY SHIP MODE
-# ============================================================
+
+###### CHART 19 — PROFIT BY SHIP MODE
+
 
 def profit_by_ship_mode(df):
     """
     Create a bar chart showing total profit by shipping mode.
 
-    Business Purpose
-    ----------------
+    Business Purpose:
     Compares profitability across different shipping modes
     and helps identify whether certain shipping methods are
     associated with stronger or weaker profit performance.
 
-    Parameters
-    ----------
+    Parameters:
     df : pandas.DataFrame
         Preprocessed retail sales dataset.
 
@@ -1943,24 +1907,22 @@ def profit_by_ship_mode(df):
     print("Chart 19 completed.")
 
 
-# ============================================================
-# CHART 20 — DISCOUNT VS PROFIT
-# ============================================================
+
+###### CHART 20 — DISCOUNT VS PROFIT
+
 
 def discount_vs_profit(df):
     """
     Create a scatter plot showing the relationship between
     discount percentage and profit.
 
-    Business Purpose
-    ----------------
+    Business Purpose:
     Helps investigate whether higher discounts are associated
     with lower profitability.
 
     Each point represents an individual sales transaction.
 
-    Parameters
-    ----------
+    Parameters:
     df : pandas.DataFrame
         Preprocessed retail sales dataset.
 
@@ -2020,25 +1982,23 @@ def discount_vs_profit(df):
     print("Chart 20 completed.")
 
 
-# ============================================================
-# CHART 21 — SALES VS PROFIT
-# ============================================================
+
+###### CHART 21 — SALES VS PROFIT
+
 
 def sales_vs_profit(df):
     """
     Create a scatter plot showing the relationship between
     sales and profit.
 
-    Business Purpose
-    ----------------
+    Business Purpose:
     Helps identify transactions with high sales but low or
     negative profit and transactions that generate strong
     profitability.
 
     Each point represents an individual sales transaction.
 
-    Parameters
-    ----------
+    Parameters:
     df : pandas.DataFrame
         Preprocessed retail sales dataset.
 
@@ -2093,23 +2053,21 @@ def sales_vs_profit(df):
     print("Chart 21 completed.")
 
 
-# ============================================================
-# CHART 22 — QUANTITY BY CATEGORY
-# ============================================================
+
+###### CHART 22 — QUANTITY BY CATEGORY
+
 
 def quantity_by_category(df):
     """
     Create a bar chart showing total quantity sold by
     product category.
 
-    Business Purpose
-    ----------------
+    Business Purpose:
     Compares product volume across categories and helps
     management understand which categories have the highest
     sales quantity.
 
-    Parameters
-    ----------
+    Parameters:
     df : pandas.DataFrame
         Preprocessed retail sales dataset.
 
@@ -2179,37 +2137,36 @@ def quantity_by_category(df):
 
     print("Chart 22 completed.")
 
-# ============================================================
+
 # TESTING / EXECUTION BLOCK
 # CHARTS 1–22
-# ============================================================
 
-# ============================================================
+
 # MAIN EXECUTION BLOCK
 # RUN ALL 22 VISUALIZATIONS
-# ============================================================
+
 
 if __name__ == "__main__":
 
     print()
-    print("=" * 70)
+    print("\n")
     print("RETAIL SALES ANALYSIS - VISUALIZATION MODULE")
-    print("=" * 70)
+    print("\n")
 
-    # --------------------------------------------------------
+    
     # Import project modules
-    # --------------------------------------------------------
+    
 
     from database import load_data
     from preprocessing import preprocess_data
 
-    # --------------------------------------------------------
+    
     # STEP 1 — LOAD DATA
-    # --------------------------------------------------------
+    
 
     print()
     print("STEP 1: Loading data from MySQL...")
-    print("-" * 70)
+    print("\n")
 
     try:
 
@@ -2226,13 +2183,13 @@ if __name__ == "__main__":
 
         raise
 
-    # --------------------------------------------------------
+    
     # STEP 2 — PREPROCESS DATA
-    # --------------------------------------------------------
+    
 
     print()
     print("STEP 2: Preprocessing data...")
-    print("-" * 70)
+    print("\n")
 
     try:
 
@@ -2249,236 +2206,166 @@ if __name__ == "__main__":
 
         raise
 
-    # --------------------------------------------------------
+    
     # TEMPORARY CHECK — FINAL DATAFRAME COLUMNS
-    # --------------------------------------------------------
+    
 
     print()
-    print("=" * 70)
     print("FINAL DATAFRAME COLUMNS")
-    print("=" * 70)
+    print("\n")
 
     for i, column in enumerate(df.columns, start=1):
 
         print(f"{i:02d}. {column}")
 
-    print("=" * 70)
+    print("\n")
 
-    # --------------------------------------------------------
+    
     # STEP 3 — GENERATE ALL VISUALIZATIONS
-    # --------------------------------------------------------
+    
 
     print()
     print("STEP 3: Generating all 22 visualizations...")
-    print("=" * 70)
+    print("\n")
 
-
-    # ========================================================
     # CHART 01
-    # ========================================================
 
     print("\n[01/22] Sales by Category")
 
     sales_by_category(df)
 
-
-    # ========================================================
     # CHART 02
-    # ========================================================
 
     print("\n[02/22] Profit by Category")
 
     profit_by_category(df)
 
-
-    # ========================================================
     # CHART 03
-    # ========================================================
 
     print("\n[03/22] Sales by Sub-category")
 
     sales_by_subcategory(df)
 
-
-    # ========================================================
     # CHART 04
-    # ========================================================
 
     print("\n[04/22] Profit by Sub-category")
 
     profit_by_subcategory(df)
 
-
-    # ========================================================
     # CHART 05
-    # ========================================================
 
     print("\n[05/22] Sales by Region")
 
     sales_by_region(df)
 
-
-    # ========================================================
     # CHART 06
-    # ========================================================
 
     print("\n[06/22] Profit by Region")
 
     profit_by_region(df)
 
-
-    # ========================================================
     # CHART 07
-    # ========================================================
 
     print("\n[07/22] Sales by Customer Segment")
 
     sales_by_segment(df)
 
-
-    # ========================================================
     # CHART 08
-    # ========================================================
 
     print("\n[08/22] Profit by Customer Segment")
 
     profit_by_segment(df)
 
-
-    # ========================================================
     # CHART 09
-    # ========================================================
 
     print("\n[09/22] Monthly Sales Trend")
 
     monthly_sales(df)
 
-
-    # ========================================================
     # CHART 10
-    # ========================================================
 
     print("\n[10/22] Monthly Profit Trend")
 
     monthly_profit(df)
 
-
-    # ========================================================
     # CHART 11
-    # ========================================================
 
     print("\n[11/22] Top 10 Products by Sales")
 
     top_10_products_by_sales(df)
 
-
-    # ========================================================
     # CHART 12
-    # ========================================================
 
     print("\n[12/22] Top 10 Products by Profit")
 
     top_10_products_by_profit(df)
 
-
-    # ========================================================
     # CHART 13
-    # ========================================================
 
     print("\n[13/22] Bottom 10 Products by Profit")
 
     bottom_10_products_by_profit(df)
 
-
-    # ========================================================
     # CHART 14
-    # ========================================================
 
     print("\n[14/22] Top 10 Customers by Sales")
 
     top_10_customers_by_sales(df)
 
-
-    # ========================================================
     # CHART 15
-    # ========================================================
 
     print("\n[15/22] Top 10 Customers by Profit")
 
     top_10_customers_by_profit(df)
 
-
-    # ========================================================
     # CHART 16
-    # ========================================================
 
     print("\n[16/22] Sales by State")
 
     sales_by_state(df)
 
-
-    # ========================================================
     # CHART 17
-    # ========================================================
 
     print("\n[17/22] Profit by State")
 
     profit_by_state(df)
 
-
-    # ========================================================
     # CHART 18
-    # ========================================================
 
     print("\n[18/22] Sales by Ship Mode")
 
     sales_by_ship_mode(df)
 
-
-    # ========================================================
     # CHART 19
-    # ========================================================
 
     print("\n[19/22] Profit by Ship Mode")
 
     profit_by_ship_mode(df)
 
-
-    # ========================================================
     # CHART 20
-    # ========================================================
 
     print("\n[20/22] Discount vs Profit")
 
     discount_vs_profit(df)
 
-
-    # ========================================================
     # CHART 21
-    # ========================================================
 
     print("\n[21/22] Sales vs Profit")
 
     sales_vs_profit(df)
 
-
-    # ========================================================
     # CHART 22
-    # ========================================================
 
     print("\n[22/22] Quantity by Category")
 
     quantity_by_category(df)
 
-
-    # ========================================================
     # COMPLETION MESSAGE
-    # ========================================================
 
     print()
-    print("=" * 70)
+    print("\n")
     print("ALL 22 VISUALIZATIONS COMPLETED SUCCESSFULLY")
-    print("=" * 70)
+    print("\n")
 
     print()
     print("Generated charts:")
@@ -2509,6 +2396,5 @@ if __name__ == "__main__":
     print()
     print("All charts have been saved to the Images folder.")
     print()
-    print("=" * 70)
+    print("\n")
     print("VISUALIZATION MODULE EXECUTION COMPLETED")
-    print("=" * 70)

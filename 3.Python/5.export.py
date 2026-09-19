@@ -1,38 +1,32 @@
 """
-=========================================================
             RETAIL SALES ANALYSIS PROJECT
-=========================================================
 
 File Name : export.py
 
 Purpose
--------
+---
 This module is responsible for exporting processed
 datasets generated during the Retail Sales Analysis
 project.
 
-Author      : Subash
-Language    : Python
-
-=========================================================
 """
 
-# ========================================================
-# IMPORT LIBRARIES
-# ========================================================
+
+###### IMPORT LIBRARIES
+
 
 import os
 import pandas as pd
 
-# ========================================================
-# CREATE EXPORT FOLDER
-# ========================================================
+
+###### CREATE EXPORT FOLDER
+
 EXPORT_FOLDER = "Exports"
 os.makedirs(EXPORT_FOLDER, exist_ok=True)
 
-# ========================================================
-# EXPORT DATASET TO CSV
-# ========================================================
+
+###### EXPORT DATASET TO CSV
+
 def export_csv(df,
                filename="Processed_Retail_Sales"):
     
@@ -45,14 +39,14 @@ def export_csv(df,
         index=False,
         encoding="utf-8"
     )
-    print("=" * 60)
+    print("\n")
     print("CSV Export Successful")
     print(filepath)
-    print("=" * 60)
+    print("\n")
 
-# ========================================================
-# EXPORT DATASET TO EXCEL
-# ========================================================
+
+###### EXPORT DATASET TO EXCEL
+
 
 def export_excel(df,
                  filename="Processed_Retail_Sales"):
@@ -68,14 +62,14 @@ def export_excel(df,
         engine="openpyxl"
     )
 
-    print("=" * 60)
+    print("\n")
     print("Excel Export Successful")
     print(filepath)
-    print("=" * 60)
+    print("\n")
 
-# ========================================================
+
 # EXPORT BOTH CSV & EXCEL
-# ========================================================
+
 
 def export_dataset(df,
                    filename="Processed_Retail_Sales"):
@@ -84,23 +78,20 @@ def export_dataset(df,
     export_excel(df, filename)
     print("\nDataset exported successfully.")
 
-# ========================================================
-# EXPORT OVERALL KPIs
-# ========================================================
+
+###### EXPORT OVERALL KPIs
+
 
 def export_kpis(df):
     
     from eda import overall_kpis
 
-    # ----------------------------------------------------
-    # Generate KPI results from EDA
-    # ----------------------------------------------------
+    # Generate KPI results from EDA    
 
     kpis = overall_kpis(df)
-
-    # ----------------------------------------------------
+    
     # Convert dictionary to DataFrame
-    # ----------------------------------------------------
+
 
     if isinstance(kpis, dict):
         kpis = pd.DataFrame(
@@ -111,18 +102,14 @@ def export_kpis(df):
             ]
         )
 
-    # ----------------------------------------------------
-    # Create output path
-    # ----------------------------------------------------
+    # Create output path    
 
     filepath = os.path.join(
         EXPORT_FOLDER,
         "Overall_KPIs.xlsx"
     )
 
-    # ----------------------------------------------------
-    # Export to Excel
-    # ----------------------------------------------------
+    # Export to Excel    
 
     kpis.to_excel(
         filepath,
@@ -131,9 +118,9 @@ def export_kpis(df):
     )
     print("Overall KPIs Exported")
 
-# ========================================================
-# EXPORT SALES SUMMARY
-# ========================================================
+
+###### EXPORT SALES SUMMARY
+
 
 def export_sales_summary(df):
     """
@@ -153,9 +140,9 @@ def export_sales_summary(df):
     )
     print("Sales Summary Exported")
 
-# ========================================================
-# EXPORT CUSTOMER SUMMARY
-# ========================================================
+
+###### EXPORT CUSTOMER SUMMARY
+
 
 def export_customer_summary(df):
     """
@@ -175,9 +162,9 @@ def export_customer_summary(df):
     )
     print("Customer Summary Exported")
 
-# ========================================================
-# EXPORT PRODUCT SUMMARY
-# ========================================================
+
+###### EXPORT PRODUCT SUMMARY
+
 
 def export_product_summary(df):
     """
@@ -196,9 +183,9 @@ def export_product_summary(df):
     )
     print("Product Summary Exported")
 
-# ========================================================
-# EXPORT REGION SUMMARY
-# ========================================================
+
+###### EXPORT REGION SUMMARY
+
 
 def export_region_summary(df):
     """
@@ -217,18 +204,18 @@ def export_region_summary(df):
     )
     print("Region Summary Exported")
 
-# ========================================================
-# EXPORT ALL BUSINESS REPORTS
-# ========================================================
+
+###### EXPORT ALL BUSINESS REPORTS
+
 
 def export_reports(df):
     """
     Export all business reports.
     """
 
-    print("=" * 60)
+    print("\n")
     print("Exporting Business Reports...")
-    print("=" * 60)
+    print("\n")
 
     export_kpis(df)
 
@@ -242,9 +229,9 @@ def export_reports(df):
 
     print("\nAll Business Reports Exported Successfully.")
 
-# ========================================================
-# EXPORT DATA DICTIONARY
-# ========================================================
+
+###### EXPORT DATA DICTIONARY
+
 
 def export_data_dictionary(df):
     """
@@ -279,9 +266,9 @@ def export_data_dictionary(df):
 
     print("Data Dictionary Exported")
 
-# ========================================================
-# EXPORT PROJECT METADATA
-# ========================================================
+
+###### EXPORT PROJECT METADATA
+
 
 def export_metadata(df):
     """
@@ -318,9 +305,9 @@ def export_metadata(df):
     )
     print("Project Metadata Exported")
 
-# ========================================================
-# EXPORT PROJECT SUMMARY
-# ========================================================
+
+###### EXPORT PROJECT SUMMARY
+
 
 def export_summary_report(df):
     """
@@ -333,41 +320,38 @@ def export_summary_report(df):
 
     print("Summary Reports Exported")
 
-# ========================================================
+
 # PROJECT LOG
-# ========================================================
+
 
 def project_log():
 
-    print("\n" + "=" * 60)
+    print("\n")
 
     print("Retail Sales Analysis Export Completed")
 
-    print("=" * 60)
+    print("\n")
 
     print("Files exported successfully to:")
 
     print(EXPORT_FOLDER)
 
-    print("=" * 60)
+    print("\n")
 
 
-# ========================================================
-# MAIN
-# ========================================================
+
+###### MAIN
+
 
 if __name__ == "__main__":
 
     from database import load_data
     from preprocessing import preprocess_data
 
-    print("=" * 60)
     print("Retail Sales Export Module")
-    print("=" * 60)
+    print("\n")
 
-    # --------------------------------------------------------
     # STEP 1 — LOAD DATA
-    # --------------------------------------------------------
 
     print("\nStep 1: Loading data...")
 
@@ -376,56 +360,43 @@ if __name__ == "__main__":
     print(f"Rows loaded    : {len(df):,}")
     print(f"Columns loaded : {len(df.columns):,}")
 
-    # --------------------------------------------------------
     # STEP 2 — PREPROCESS DATA
-    # --------------------------------------------------------
-
+    
     print("\nStep 2: Preprocessing data...")
 
     df = preprocess_data(df)
 
     print("Preprocessing completed.")
 
-    # --------------------------------------------------------
     # STEP 3 — EXPORT PROCESSED DATASET
-    # --------------------------------------------------------
-
+    
     print("\nStep 3: Exporting processed dataset...")
 
     export_dataset(df)
-
-    # --------------------------------------------------------
+    
     # STEP 4 — EXPORT BUSINESS REPORTS
-    # --------------------------------------------------------
-
+    
     print("\nStep 4: Exporting business reports...")
 
     export_reports(df)
-
-    # --------------------------------------------------------
+    
     # STEP 5 — EXPORT SUPPORTING REPORTS
-    # --------------------------------------------------------
-
+    
     print("\nStep 5: Exporting supporting reports...")
 
     export_summary_report(df)
-
-    # --------------------------------------------------------
+    
     # STEP 6 — PROJECT LOG
-    # --------------------------------------------------------
-
+    
     print("\nStep 6: Creating project log...")
 
     project_log()
-
-    # --------------------------------------------------------
+    
     # COMPLETION MESSAGE
-    # --------------------------------------------------------
-
-    print("\n" + "=" * 60)
+    
+    print("\n")
     print("Export Completed Successfully.")
     print("Check the Exports folder for generated files.")
-    print("=" * 60)
 
 
 

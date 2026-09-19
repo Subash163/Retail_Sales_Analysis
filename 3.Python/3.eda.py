@@ -1,18 +1,13 @@
 """
-=========================================================
 Retail Sales Analysis Project
 File        : eda.py
 Description : Business summaries and KPI calculations
-Author      : Subash
-=========================================================
 """
 
 import pandas as pd
 
 
-# =========================================================
-# OVERALL BUSINESS KPIs
-# =========================================================
+###### OVERALL BUSINESS KPIs
 
 def overall_kpis(df):
     """
@@ -32,9 +27,7 @@ def overall_kpis(df):
     }
 
 
-# =========================================================
-# SALES SUMMARY
-# =========================================================
+###### SALES SUMMARY
 
 def sales_summary(df):
 
@@ -49,9 +42,7 @@ def sales_summary(df):
     )
 
 
-# =========================================================
-# SUB CATEGORY SUMMARY
-# =========================================================
+###### SUB CATEGORY SUMMARY
 
 def subcategory_summary(df):
 
@@ -65,9 +56,7 @@ def subcategory_summary(df):
     )
 
 
-# =========================================================
-# CUSTOMER SUMMARY
-# =========================================================
+###### CUSTOMER SUMMARY
 
 def customer_summary(df):
 
@@ -82,9 +71,7 @@ def customer_summary(df):
     )
 
 
-# =========================================================
-# PRODUCT SUMMARY
-# =========================================================
+###### PRODUCT SUMMARY
 
 def product_summary(df):
 
@@ -99,9 +86,7 @@ def product_summary(df):
     )
 
 
-# =========================================================
-# REGION SUMMARY
-# =========================================================
+###### REGION SUMMARY
 
 def region_summary(df):
 
@@ -115,9 +100,7 @@ def region_summary(df):
     )
 
 
-# =========================================================
-# STATE SUMMARY
-# =========================================================
+###### STATE SUMMARY
 
 def state_summary(df):
 
@@ -131,9 +114,7 @@ def state_summary(df):
     )
 
 
-# =========================================================
-# CITY SUMMARY
-# =========================================================
+###### CITY SUMMARY
 
 def city_summary(df):
 
@@ -147,9 +128,7 @@ def city_summary(df):
     )
 
 
-# =========================================================
-# SEGMENT SUMMARY
-# =========================================================
+###### SEGMENT SUMMARY
 
 def segment_summary(df):
 
@@ -163,9 +142,7 @@ def segment_summary(df):
     )
 
 
-# =========================================================
-# SHIP MODE SUMMARY
-# =========================================================
+###### SHIP MODE SUMMARY
 
 def shipmode_summary(df):
 
@@ -179,9 +156,7 @@ def shipmode_summary(df):
     )
 
 
-# =========================================================
-# MONTHLY SALES TREND
-# =========================================================
+###### MONTHLY SALES TREND
 
 def monthly_sales(df):
 
@@ -196,27 +171,21 @@ def monthly_sales(df):
     )
 
 
-# =========================================================
-# TOP 10 CUSTOMERS
-# =========================================================
+###### TOP 10 CUSTOMERS
 
 def top_customers(df):
 
     return customer_summary(df).head(10)
 
 
-# =========================================================
-# TOP 10 PRODUCTS
-# =========================================================
+###### TOP 10 PRODUCTS
 
 def top_products(df):
 
     return product_summary(df).head(10)
 
 
-# =========================================================
-# LOSS MAKING PRODUCTS
-# =========================================================
+###### LOSS MAKING PRODUCTS
 
 def loss_products(df):
 
@@ -230,9 +199,7 @@ def loss_products(df):
     )
 
 
-# =========================================================
-# HIGH DISCOUNT PRODUCTS
-# =========================================================
+###### HIGH DISCOUNT PRODUCTS
 
 def high_discount_products(df):
 
@@ -246,9 +213,7 @@ def high_discount_products(df):
     )
 
 
-# =========================================================
-# CORRELATION MATRIX
-# =========================================================
+###### CORRELATION MATRIX
 
 def correlation_matrix(df):
 
